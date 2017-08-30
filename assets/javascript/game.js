@@ -4,22 +4,24 @@ $("#winsCount").html("<h3>" + winsCount + "</h3>");
 
 //lossesCount starts at 0 and is visible in html
 var lossesCount = 0;
-$("lossesCount").html("<h3>" + lossesCount + "</h3>");
+$("#lossesCount").html("<h3>" + lossesCount + "</h3>");
 
 //guessLeft starts at 10 and is visible in html
 var guessLeft = 10;
 $("#guessLeft").html("<h3>" + guessLeft + "</h3>");
 
 //guessList index starts at 0 and is empty array
-var guessList = ["a", "b"];
+var guessList = [];
 $("#guessList").html("<h3>" + guessList + "</h3>");
 
-/*
 //psychicChoices is an array of all letters that psychic can choose from
 var psychicChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-//psychic randomly chooses a letter from choice array
+//psychic randomly chooses a letter that corresponds to an index within the length of the array
 var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+
+//psychic randomly chooses a letter from the array
+var psychicAnswer = psychicChoices[psychicGuess];
 
 //user chooses letter by pressing a key
 var userGuess = event.key;
@@ -27,6 +29,7 @@ var userGuess = event.key;
 //every userGuess has to be pushed into guessList array
 guessList.push(userGuess);
 
+/*
 for (var i = 1; i <= 10; i++) {
 		guessList[i];
     	guessList.push(userGuess);
