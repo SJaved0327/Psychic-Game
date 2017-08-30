@@ -11,9 +11,10 @@ var guessLeft = 10;
 $("#guessLeft").html("<h3>" + guessLeft + "</h3>");
 
 //guessList index starts at 0 and is empty array
-var guessList = [];
+var guessList = ["a", "b"];
 $("#guessList").html("<h3>" + guessList + "</h3>");
 
+/*
 //psychicChoices is an array of all letters that psychic can choose from
 var psychicChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
