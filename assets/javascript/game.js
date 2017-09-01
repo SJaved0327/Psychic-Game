@@ -42,8 +42,32 @@ document.addEventListener("keypress", function(e) {
     guessList.push(userGuess);
     //guessList array is displayed on page so user sees their previous incorrect guesses
     $("#guessList").html(guessList);
+    //consolelog
+    console.log("user: " + userGuess);
+    console.log("psychic " + psychicAnswer);
 
-    //
+    //if userGuess matches psychicAnswer
+    if (userGuess === psychicAnswer){
+    	//winsCount increases by one and value is stored
+    	winsCount = winsCount + 1;
+    	//winsCount prints to page
+    	$("#winsCount").html(winsCount);
+    	//new psychicAnswer value is stored
+    	psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+    	//guessLeft is reset to 10;
+    	guessLeft = 10;
+    	//guessLeft prints to page
+    	$("#guessLeft").html(guessLeft);
+    	//guessList resets to empty array
+    	guessList = [];
+    	//guessList prints to page
+    	$("#guessList").html(guessList);
+    } else if (userGuess != psychicAnswer){}
+   
+
+
+
+    /*
     if ((userGuess != psychicAnswer)){
     	if (guessLeft > 0){
     		guessLeft = guessLeft - 1;
@@ -64,6 +88,7 @@ document.addEventListener("keypress", function(e) {
     	guessLeft = 10;
     	$("#guessLeft").html(guessLeft);
    	}
+   	*/
 
 });
 
