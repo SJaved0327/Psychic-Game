@@ -32,28 +32,38 @@ function reset(){
 	psychicAnswer;
 }
 
+var i = 0;
+
 //store value of keypress into userGuess
 document.addEventListener("keypress", function(e) {
     //userGuess = current key pressed
     var userGuess = e.key;
-    $("#guessList").html(userGuess);
-    
-    if (userGuess != psychicAnswer){
-    	guessLeft = guessLeft - 1;
-    	$("#guessLeft").html(guessLeft);
-    } else if (userGuess === pscychicAnswer){
+    //value of userGuess is added to guessList array
+    guessList.push(userGuess);
+    //guessList array is displayed on page so user sees their previous incorrect guesses
+    $("#guessList").html(guessList);
+
+    //
+    if ((userGuess != psychicAnswer)){
+    	if (guessLeft > 0){
+    		guessLeft = guessLeft - 1;
+    		$("#guessLeft").html(guessLeft);
+    	}else if (guessLeft = 0){
+    		lossesCount = lossesCount + 1;
+    		$("#lossesCount").html(lossesCount);
+    		var psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+    		psychicAnswer;
+    		guessLeft = 10;
+    		$("#guessLeft").html(guessLeft);
+    	}
+    } else if (userGuess === psychicAnswer){
     	winsCount = winsCount + 1;
     	$("#winsCount").html(winsCount);
     	var psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+    	psychicAnswer;
     	guessLeft = 10;
     	$("#guessLeft").html(guessLeft);
-    } else if (guessLeft = 0){
-    	lossesCount = lossesCount + 1;
-    	$("#lossesCount").html(lossesCount);
-    	var psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-    	guessLeft = 10;
-    	$("#guessLeft").html(guessLeft);
-    }
+   	}
 
 });
 
