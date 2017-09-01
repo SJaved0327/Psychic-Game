@@ -10,9 +10,9 @@ $("#lossesCount").html(lossesCount);
 var guessLeft = 10;
 $("#guessLeft").html(guessLeft);
 
-
 //guessList index starts at 0 and is empty array
 var guessList = [];
+$("#guessList").html(guessList);
 
 //psychic choices are alphabet letters in an array
 var psychicChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -20,88 +20,69 @@ var psychicChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 //psychic randomly chooses a letter that corresponds to an index within the length of the array
 var psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
 
-/*
-$('textarea').keydown(function(e) {
-    var userGuess = e.which;
-    console.log(userGuess);
-})
-*/
-
+//userGuess is empty variable
 var userGuess;
 
-document.addEventListener("keypress", function(e) {
-            var userGuess = e.key;
-            console.log(userGuess);
-});
-
-
-//document.on(keyPress, userGuess);
-
-//console.log(userGuess);
-	
-
-
-
-//when page loads, it runs reset code
-//	winsCount = winsCount;
-//	lossesCount = lossesCount;
-//	guessLeft = 10;
-//	guessList = [];
-//	psychicAnswer;
-
-//when key is pressed, it becomes userGuess
-//document.onkeyup()
-
-
-
-
-
-
-
-
-//var userGuess = document.addEventListener("keypress");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//guess to be input by user
-//var userGuess = "";
-//userGuess = document.onkeyup.value;
-
-
-/*
-//reset function to be called after each round
+//when round ends, function needs to be called where everything resets with stored values
 function reset(){
 	winsCount = winsCount;
 	lossesCount = lossesCount;
 	guessLeft = 10;
 	guessList = [];
-};
-*/
+	psychicAnswer;
+}
 
+//store value of keypress into userGuess
+document.addEventListener("keypress", function(e) {
+    //userGuess = current key pressed
+    var userGuess = e.key;
+    $("#guessList").html(userGuess);
+    
+    if (userGuess != psychicAnswer){
+    	guessLeft = guessLeft - 1;
+    	$("#guessLeft").html(guessLeft);
+    } else if (userGuess === pscychicAnswer){
+    	winsCount = winsCount + 1;
+    	$("#winsCount").html(winsCount);
+    	var psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+    	guessLeft = 10;
+    	$("#guessLeft").html(guessLeft);
+    } else if (guessLeft = 0){
+    	lossesCount = lossesCount + 1;
+    	$("#lossesCount").html(lossesCount);
+    	var psychicAnswer = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+    	guessLeft = 10;
+    	$("#guessLeft").html(guessLeft);
+    }
+
+});
+
+
+
+    //winsCount = winsCount;
+    //lossesCount = lossesCount;
+    //guessLeft = guessLeft;
+	/*
+    for (var i = 0; i < 10; i++) {
+		// userGuess is stored in guessList
+    	userGuess = guessList[i];
+    	// It then takes the userGuess and adds the value to the end of the guessList array
+   		guessList.push(userGuess);
+   		// It prints the updated array onto the document
+   		$("#guessList").html(guessList);
+    	// number of guesses left decreases by 1
+   		guessLeft = guessLeft - 1;
+    	
+    	console.log(userGuess);
+    }
+    */
+
+
+
+/*
 // For-Loop that will repeat 10 times.
 // User only gets 10 attempts until the game resets
-/*
-for (var i = 0; i < 3; i++) {
-	
-	var guessLeft = 10;
-
-	userGuess = prompt("guess a letter!");
+for (var i = 0; i < 10; i++) {
 	// userGuess is stored in guessList
     userGuess = guessList[i];
     // It then takes the userGuess and adds the value to the end of the guessList array
@@ -110,6 +91,7 @@ for (var i = 0; i < 3; i++) {
     $("#guessList").html(guessList);
     // number of guesses left decreases by 1
     guessLeft = guessLeft - 1;
+    console.log(guessLeft)
 }
 */
 
