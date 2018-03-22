@@ -3,33 +3,55 @@
   <head>
     <meta charset="UTF-8">
     <title>Psychic Game</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- CSS Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   </head>
   <body>
 
-  <!-- The Psychic Game <h1> -->
-    <h1>The Psychic Game</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <!-- The Psychic Game -->
+          <h1>The Psychic Game</h1>
+          <h4>Guess what letter I'm thinking of</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s8">
+          <!-- Wins: #-->
+          <p>Wins: <span id="winsCount"></span></p>
+          <!-- Losses: #-->
+          <p>Losses: <span id="lossesCount"></span></p>
+          <!-- Guesses Left: #-->
+          <p>Guesses Left: <span id="guessLeft"></span></p>
+          <!-- Your Guesses so far: #-->
+          <p>Guesses so far: <span id="guessList"></span></p>
+        </div>
+        <div class="col s4">
+          <!-- userGuess displays here -->
+          <h1><span id="current-guess"></span></h1>
+        </div>
+      </div>
+    </div>
 
-  <!-- Premise of Game -->
-    <h3>Guess what letter I'm thinking of</h3>
-
-  <!-- Wins: #-->
-    <h3>Wins: <span id="winsCount"></span></h3>
-
-  <!-- Losses: #-->
-    <h3>Losses: <span id="lossesCount"></span></h3>
-
-  <!-- Guesses Left: #-->
-    <h3>Guesses Left: <span id="guessLeft"></span></h3>
-
-  <!-- Your Guesses so far: #-->
-    <h3>Guesses so far: <span id="guessList"></span></h3>
-
-  <script 
+    <!-- JQuery -->
+    <script 
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous">
-  </script>
-  <script type="text/javascript" src="assets/javascript/game.js"></script>
+    </script>
+    <!-- Materialize - Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Chance JS -->
+    <script type="text/javascript" src="bower_components/chance/chance.js"></script>
+      <script>
+        // Use Chance
+        alert(chance.string());
+      </script>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
   </body>
 </html>

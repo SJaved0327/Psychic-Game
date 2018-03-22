@@ -1,3 +1,5 @@
+/* Global Variables */
+
 //winsCount starts at 0 and is visible in html
 var winsCount = 0;
 $("#winsCount").html(winsCount);
